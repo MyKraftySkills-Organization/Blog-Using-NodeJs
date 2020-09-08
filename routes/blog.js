@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.get('/all', async (req, res) => {
     const articles = await Article.find().sort({ createdAt: 'desc' })
-    res.send({message:'Success', data: {articles: articles}})
+    res.send({message:'Success', articles: articles})
 })
 
 router.get('/:slug', async (req, res) => {
