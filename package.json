@@ -1,10 +1,11 @@
 {
-  "name": "markdown-blog",
+  "name": "Blog Api",
   "version": "1.0.0",
   "description": "Blog made using MEN(Mongo Expressjs Nodejs)",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "devstart": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
