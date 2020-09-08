@@ -2,10 +2,21 @@ const express = require('express')
 const mongoose = require('mongoose')
 const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
+const apiRouter = require('./routes/blog');
 const methodOverride = require('method-override')
-const connectDB = require('./config')
 const app = express()
-connectDB()
+var URI = require('./config')
+// connect database
+const connectDB = async (URI) => {
+  await mongoose.connect(URI, { 
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useCreateIndex: true,
+  });
+  console.log('db connected...');
+}
+connectDB(process.env.URI || URI);
+
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
@@ -16,5 +27,6 @@ app.get('/', async (req, res) => {
 })
 
 app.use('/articles', articleRouter);
+app.use('/', apiRouter);
 
-app.listen(3030);
+app.listen( process.env.PORT || 3030);
