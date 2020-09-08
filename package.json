@@ -1,5 +1,5 @@
 {
-  "name": "Blog Api",
+  "name": "markdown-blog",
   "version": "1.0.0",
   "description": "Blog made using MEN(Mongo Expressjs Nodejs)",
   "main": "server.js",
