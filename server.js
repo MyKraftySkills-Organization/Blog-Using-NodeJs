@@ -5,7 +5,8 @@ const articleRouter = require('./routes/articles')
 const apiRouter = require('./routes/blog');
 const methodOverride = require('method-override')
 const app = express()
-var URI = require('./config')
+if(process.env.NODE_ENV !== 'production')
+  var URI = require('./config')
 // connect database
 const connectDB = async (URI) => {
   await mongoose.connect(URI, { 
